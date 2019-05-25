@@ -1,2 +1,2 @@
-# joelsunny.gihub.io
+# joelsunny.github.io
 personal website
