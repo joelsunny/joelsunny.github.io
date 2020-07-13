@@ -1,67 +1,74 @@
-body,html {
-
-    width: 100vw;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-
+body, html {
+  width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .back-canvas {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    margin: 0;
-    padding: 0;
-    z-index: -10;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  z-index: -10;
 }
 
-.svgimg{
-    width: 40em;
+.svgimg {
+  width: 40em;
 }
 
 .card-text {
-    color: gray;
+  color: gray;
 }
-.card-body {
-    
-}
+
 .card-title {
-    color: #025ce2;
+  color: #025ce2;
 }
+
 .card {
-    border: 2px solid black;
-    background-color:#ffffffb0;
+  border: 2px solid black;
+  background-color: #ffffffb0;
 }
+
 .header {
-    background-color: rgba(214, 214, 218, 0.712);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 8vh;
-    border-bottom: 2px solid gray;;
+  background-color: rgba(214, 214, 218, 0.712);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 8vh;
+  border-bottom: 2px solid gray;
 }
 
 .site-title {
-    font-family: "Gill Sans", sans-serif;
-    font-size: 3em;
-    font-weight: 700;
-    color: rgba(53, 52, 53, 0.726);
-    
+  font-family: "Gill Sans", sans-serif;
+  font-size: 3em;
+  font-weight: 700;
+  color: rgba(53, 52, 53, 0.726);
 }
 
 .bbody {
-    background-color: rgba(214, 214, 218, 0.712);
-    position: absolute;
-    top: 0em;
-    margin-left: 2.5vw;
-    margin-right: 2.5vw;
-    margin-top: 10vh;
-    padding-left: 3vw;
-    padding-right: 3vw;
-    padding-top: 3vw;
-    width: 95vw;
-    min-height: 100vh;
-    z-index: 10;
+  background-color: rgba(214, 214, 218, 0.712);
+  position: absolute;
+  top: 0em;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+  margin-top: 10vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-top: 3vw;
+  width: 95vw;
+  min-height: 100vh;
+  z-index: 10;
 }
+/*# sourceMappingURL=style.css.map */
