@@ -71,4 +71,27 @@ body, html {
   min-height: 100vh;
   z-index: 10;
 }
+
+.navbar {
+  position: absolute;
+  bottom: 0em;
+  left: -2.5vw;
+  padding-left: 10px;
+  margin: 0;
+  background-color: #dc1010a8;
+  border-top: 3px solid gray;
+  border-right: 3px solid gray;
+  border-radius: 0 1em 1em 0;
+}
+
+.navbar-brand {
+  color: white;
+  font-family: "Gill Sans", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+}
+
+.navbar-brand:hover {
+  color: black;
+}
 /*# sourceMappingURL=style.css.map */
