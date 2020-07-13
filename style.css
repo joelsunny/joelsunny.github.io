@@ -34,12 +34,13 @@ body,html {
     background-color:#ffffffb0;
 }
 .header {
-    background-color: rgba(204, 204, 204, 0.712);
+    background-color: rgba(214, 214, 218, 0.712);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 8vh;
+    border-bottom: 2px solid gray;;
 }
 
 .site-title {
