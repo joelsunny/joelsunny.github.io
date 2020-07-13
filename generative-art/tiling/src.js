@@ -5,16 +5,17 @@ var size = window.innerWidth;
 var h = window.innerHeight;
 var dpr = window.devicePixelRatio;
 canvas.width = size*dpr;
-canvas.height = size*dpr;
+canvas.height = h*dpr;
 context.scale(dpr, dpr);
 context.lineJoin = 'bevel';
 
 var line, dot,
     odd = false, 
     lines = [],
-    gap = size / 8;
+    gap = size / 12,
+    vgap = h/8;
 
-for(var y = gap/2; y <= size; y+= 1.5*gap) {
+for(var y = vgap/2; y <= h; y+= vgap) {
   odd = !odd;
   line = [];
   for(var x = gap / 4; x <= size; x+= gap) {
@@ -57,3 +58,11 @@ for(var y = 0; y < lines.length - 1; y++) {
     drawTriangle(dotLine[i], dotLine[i+1], dotLine[i+2]);
   }
 }
+
+// function dr() {
+//   lines.forEach((line) => {
+
+//   })
+// }
+  
+// setInterval(dr, 1000);
