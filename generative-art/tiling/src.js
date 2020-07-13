@@ -2,69 +2,58 @@ var canvas = document.querySelector('canvas');
 var context = canvas.getContext('2d');
 
 var size = window.innerWidth;
+var h = window.innerHeight;
 var dpr = window.devicePixelRatio;
-canvas.width = size * dpr;
-canvas.height = size * dpr;
+canvas.width = size*dpr;
+canvas.height = size*dpr;
 context.scale(dpr, dpr);
-context.lineWidth = 2;
+context.lineJoin = 'bevel';
 
-var randomDisplacement = 5;
-var rotateMultiplier = 10;
-var offset = 10;
-var squareSize = 50;
+var line, dot,
+    odd = false, 
+    lines = [],
+    gap = size / 8;
 
-function draw(width, height) {
-
-  var gradient = context.createLinearGradient(-width/2, -height/2, width, height);
-
-  // Add three color stops
-  gradient.addColorStop(0, `rgb(
-      ${Math.random()*255},
-        ${Math.random()*255},
-        ${Math.random()*255})`);
-
-  gradient.addColorStop(.5, `rgb(
-      ${Math.random()*255},
-        ${Math.random()*255},
-        ${0})`);
-
-  gradient.addColorStop(1, `rgb(
-      ${Math.random()*255},
-        ${Math.random()*255},
-        ${0})`);
-     gradient.addColorStop(1, `rgb(
-      ${Math.random()*255},
-        ${Math.random()*255},
-         ${Math.random()*255})`);
-
-          gradient.addColorStop(1, `rgb(
-      ${Math.random()*255},
-        ${Math.random()*255},
-        ${0})`);
-          gradient.addColorStop(1, `rgb(
-      ${Math.random()*255},
-        ${Math.random()*255},
-        ${0})`);
-
-  context.fillStyle = gradient;
-
-  context.beginPath();
-  context.fillRect(-width/2, -height/2, width, height);
-  context.stroke(); 
+for(var y = gap/2; y <= size; y+= 1.5*gap) {
+  odd = !odd;
+  line = [];
+  for(var x = gap / 4; x <= size; x+= gap) {
+    dot = {x: x + (odd ? gap/2 : 0), y: y};
+    line.push({
+      x: x + (Math.random()*.8 - .4) * gap  + (odd ? gap/2 : 0),
+      y: y + (Math.random()*.8 - .4) * gap
+    });
+    context.fill();
+  }
+  lines.push(line);
 }
 
-for(var i = squareSize; i <= size - squareSize; i += squareSize) {
-  for(var j = squareSize; j <= size - squareSize; j+= squareSize) {
-    var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-    var rotateAmt = j / size * Math.PI / 180 * plusOrMinus * Math.random() * rotateMultiplier;
+function drawTriangle(pointA, pointB, pointC) {
+  context.beginPath();
+  context.moveTo(pointA.x, pointA.y);
+  context.lineTo(pointB.x, pointB.y);
+  context.lineTo(pointC.x, pointC.y);
+  context.lineTo(pointA.x, pointA.y);
+  context.closePath();
+  context.strokeStyle = 'rgba(125, 125, 125, 0.6)';
+  var gray = (10 + Math.floor(Math.random()*5)).toString(16);
+  context.fillStyle = '#' + gray + gray + gray; 
+  context.fill();
+  
+  context.stroke();
+}
 
-    plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-    var translateAmt = j / size * plusOrMinus * Math.random() * randomDisplacement;
-      
-    context.save();
-    context.translate(i + translateAmt + offset, j + offset);
-    context.rotate(rotateAmt);
-    draw(squareSize, squareSize);
-    context.restore();
+var dotLine;
+odd = true;
+
+for(var y = 0; y < lines.length - 1; y++) {
+  odd = !odd;
+  dotLine = [];
+  for(var i = 0; i < lines[y].length; i++) {
+    dotLine.push(odd ? lines[y][i]   : lines[y+1][i]);
+    dotLine.push(odd ? lines[y+1][i] : lines[y][i]);
+  }
+  for(var i = 0; i < dotLine.length - 2; i++) {
+    drawTriangle(dotLine[i], dotLine[i+1], dotLine[i+2]);
   }
 }
