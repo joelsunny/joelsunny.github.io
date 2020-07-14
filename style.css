@@ -6,7 +6,7 @@ body, html {
 }
 
 .back-canvas {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   position: fixed;
   margin: 0;
@@ -63,8 +63,9 @@ body, html {
 .grid-wrap {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto auto;
-      grid-template-columns: auto auto auto auto;
+  grid-gap: 15px;
+  -ms-grid-columns: (320px)[auto-fill];
+      grid-template-columns: repeat(auto-fill, 320px);
   grid-auto-rows: 1fr;
 }
 
