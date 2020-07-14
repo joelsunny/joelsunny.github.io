@@ -38,6 +38,10 @@ function drawTriangle(pointA, pointB, pointC) {
   context.closePath();
   context.strokeStyle = 'rgba(125, 125, 125, 0.6)';
   var gray = (10 + Math.floor(Math.random()*5)).toString(16);
+  var r = (Math.floor(Math.random()*4)).toString(16);
+  var g = (Math.floor(Math.random()*10)).toString(16);
+  var b = (Math.floor(Math.random()*16)).toString(16);
+  var a = (Math.floor(Math.random()*6)).toString(16)
   context.fillStyle = '#' + gray + gray + gray; 
   context.fill();
   
@@ -59,10 +63,3 @@ for(var y = 0; y < lines.length - 1; y++) {
   }
 }
 
-// function dr() {
-//   lines.forEach((line) => {
-
-//   })
-// }
-  
-// setInterval(dr, 1000);
