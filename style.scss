@@ -111,3 +111,10 @@ pre {
     min-height: 50vh;
     padding: 1em;
 }
+
+.gif {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
