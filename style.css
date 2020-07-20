@@ -32,6 +32,7 @@ body, html {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+  min-width: 320px;
 }
 
 .header {
@@ -86,15 +87,17 @@ body, html {
 }
 
 pre {
-  background-color: #353435;
+  background-color: #f7f7f7;
   width: 90%;
-  color: whitesmoke;
-  font-family: monospace;
-  font-weight: 600;
+  color: #333;
+  font-family: Consolas, monaco, monospace;
+  font-size: 85%;
   padding-left: 2em;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .navbar {

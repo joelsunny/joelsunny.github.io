@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #code {
+            background-color: antiquewhite;
+            user-select: all;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="code" rows=10 cols=100></textarea>
+    <button id="code-run">run</button>
+    <div id="result"></div>
+    <script>
+        let e = document.getElementById("code");
+        console.log(e);
+        var v = "result"
+        function runcode() {
+            
+            console.log("running");
+            let code = e.value;
+            let f = Function(code);
+            f();
+            let c = document.getElementById("result");
+            c.innerHTML=v;
+        }
+        let b = document.getElementById("code-run");
+        b.onclick = function() {runcode()};
+        let c = document.getElementById("result");
+        c.innerHTML=v
+    </script>
+</body>
+</html>
